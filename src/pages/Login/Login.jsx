@@ -3,9 +3,12 @@ import { signIn } from "../../services/auth";
 import toast from "react-hot-toast";
 import { useNavigate } from "react-router-dom";
 import { setLocalStorage } from "../../utilities/localStorage";
+import { createUser } from "../../redux/states/user";
+import { useDispatch } from "react-redux";
 export default function Login(){
     let img = "https://images.unsplash.com/photo-1661956600684-97d3a4320e45?ixlib=rb-4.0.3&ixid=MnwxMjA3fDF8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80";
     const navigate = useNavigate()
+    const dispatch = useDispatch();
     const [data,setData] = useState({
         username: "",
         clave: ""
@@ -22,7 +25,7 @@ export default function Login(){
         try {
             const result = await signIn(data)
             if(result.login){
-                setLocalStorage("login", true)
+                dispatch(createUser({ ...result }));
                 navigate("/transactions", {replace: true})
                 return
             }
