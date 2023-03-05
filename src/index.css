@@ -13,6 +13,10 @@
   -moz-osx-font-smoothing: grayscale;
   -webkit-text-size-adjust: 100%;
 } */
+body {
+  width: 100%;
+  overflow-x: hidden;
+}
 @import url('https://fonts.googleapis.com/css2?family=Overpass:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 .bg-prisma{
   background: rgb(0,0,0);
@@ -32,4 +36,35 @@
 }
 ul{
   list-style: none;
+}
+.list ul {
+  margin: 0;
+  padding: 0;
+  display: flex !important;
+  background-color: #f2f2f2;
+  width: fit-content;
+}
+.list ul li a {
+  padding: 10px;
+  display: flex;
+}
+.list ul li a {
+  color: black;
+  text-decoration: none;
+}
+a{
+  appearance: none;
+  outline: none !important;
+}
+.activeClassName {
+  background-color: #0d6efd;
+  color: white;
+  caret-color: transparent;
+}
+.nextClassName, .previousClassName{
+  color: black;
+  background-color: #e7e7e7;
+}
+textarea{
+  resize: none !important;
 }
